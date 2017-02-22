@@ -1,11 +1,11 @@
 import time
 import RPi.GPIO as GPIO
 
-ledpin = 12
+LedPin = 12
 GPIO.setmode(GPIO.BOARD)
-GPIO.setup(ledpin,GPIO.OUT)
+GPIO.setup(LedPin,GPIO.OUT)
 
-PwmLed = GPIO.PWM(ledpin,500)
+PwmLed = GPIO.PWM(LedPin,500)
 PwmLed.start(0)
 
 while True:
