@@ -1,17 +1,21 @@
-from smbus import SMBus
-from RPi.GPIO import GPIO
+import smbus
+import RPi.GPIO as GPIO
 
 GPIO.setmode(GPIO.BOARD)
+data3 = 0
 
-addr_Write_1 = 0x3B #SA0 to Vcc
-addr_Read_1 = 0x3A #SA0 to Vcc
+addr = 0b11010100
 
-b = SMBus(0)
-data1 = "I2C is Working"
-data2 = "Something"
+b =smbus.SMBus(1)
 
-b.write_word_data(addr_Write_1,data1,data2) #0x2F = 47 and 0x58 =
+while True:
+	x=b.read_word_data(addr,0b00001100)
+	print x
+	y=b.read_word_data(addr,0b00001010)
+        print y
+	z=b.read_word_data(addr,0b00001001)
+        print z
 
-b.read_word_data(addr_Read_1,data3)
 
-print data3
+
+	

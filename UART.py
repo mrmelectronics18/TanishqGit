@@ -1,16 +1,11 @@
-import Serial
+import serial
 import RPi.GPIO as GPIO
 
 GPIO.setmode(GPIO.BOARD)
 
-ser = Serial.serial(
+ser = serial.Serial(
 	port = '/dev/ttyAMA0',
-	baudrate = 9600,
-	parity = serial.PARITY_NONE,
-	stopbits = serial.STOPBITS_ONE,
-	bytesize = serial.DATABITS_EIGHTBITS,
-	timeout = 1
-	)
+	baudrate = 9600)
 
 while True:
 	 print "Serial is open" , str(ser.isOpen())
@@ -25,4 +20,4 @@ while True:
 
 	 print "UART is Working(Recieve)" , x
 
-	 ser.close()
+ser.close()
