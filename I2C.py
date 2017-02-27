@@ -10,13 +10,13 @@ b.write_byte_data(addr,0x12,0xE0)
 b.write_byte_data(addr,0x20,0x57)
 
 while True:
-	x = b.read_word_data(addr,0x16)
+	x = b.read_word_data(addr,0x08)
 	print "Mag X = ",x
 
-	y = b.read_word_data(addr,0x18)
+	y = b.read_word_data(addr,0x0A)
 	print "Mag Y = ",y
 
-	z = b.read_word_data(addr,0x1A)
+	z = b.read_word_data(addr,0x0C)
 	print "Mag Z = ",z
 
 	x1 = b.read_word_data(addr,0x28)
